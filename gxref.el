@@ -226,7 +226,8 @@ global"
      ;; index. Unfortunately the return values are not documented in the man
      ;; page of global, so this relies on observed behaviour.
      (when (and (not (member "-p" args))
-                err (string= (cadr err) "global exited with status 3"))
+                (string= (cadr err)
+                         (concat gxref-global-exe " exited with status 3")))
        (gxref--create-db-ask))
        nil))))
 
